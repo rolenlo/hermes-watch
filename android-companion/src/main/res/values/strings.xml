@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hermes Watch Companion</string>
+    <string name="relay_url_hint">https://your-pc.your-tailnet.ts.net:8453</string>
+    <string name="health_stub">Phase 0: tap Check health (OkHttp TODO)</string>
+</resources>

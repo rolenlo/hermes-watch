@@ -6,6 +6,15 @@ changes Hermes hands to Claude Code.
 
 Built for the Amazfit Active 2 (Zepp OS); other round Zepp OS 4 watches should need only small changes.
 
+
+## Wear OS port (in progress)
+
+A parallel **Wear OS + Android companion** port is underway for devices such as the **Xiaomi Watch 2 Pro** (Wear OS). It reuses this repo’s `relay.js` and Relay HTTP API; the Amazfit / Zepp OS app under `zepp-app/` stays as-is.
+
+- Skeleton: `wear-app/`, `android-companion/`, `android-shared/` (open Gradle root `android/` in Android Studio)
+- MVP audio: 16 kHz mono WAV/PCM (upstream Zepp path still uses Opus)
+- Status, architecture, and setup: **[docs/WEAR-PORT.md](docs/WEAR-PORT.md)** (zh-HK)
+
 ## What it does
 
 - **Voice in, text and voice out.** The watch records Opus audio; your PC transcribes it with Whisper and asks

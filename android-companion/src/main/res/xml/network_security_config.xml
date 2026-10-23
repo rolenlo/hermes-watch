@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tailscale serves HTTPS with a local CA; cleartext is not used for the relay.
+     If you hit certificate issues in debug, add a debug-overrides trust-anchors entry. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

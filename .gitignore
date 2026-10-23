@@ -11,3 +11,21 @@ node_modules/
 zepp-app/dist/
 stt/.venv/
 __pycache__/
+
+
+# Android / Wear OS (local SDK, Gradle, IDE, APKs)
+local.properties
+android/local.properties
+.gradle/
+**/build/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.iml
+.idea/
+*.hprof
+captures/
+.cxx/
+*.keystore
+!debug.keystore
