@@ -1,4 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- User-facing copy is zh-HK (Cantonese, Traditional Chinese). Keep it short: one glance on a 1.43" screen. -->
 <resources>
-    <string name="app_name">Hermes Watch</string>
+    <string name="app_name">Hermes</string>
+
+    <!-- Talk -->
+    <string name="talk">講嘢</string>
+    <string name="talk_description">問 Hermes（語音或打字）</string>
+    <string name="new_chat">新對話</string>
+    <string name="new_chat_done">已開新對話</string>
+    <string name="input_label">問 Hermes</string>
+    <string-array name="preset_questions">
+        <item>今日有咩要做？</item>
+        <item>PC 狀態點？</item>
+        <item>而家幾點？</item>
+    </string-array>
+
+    <!-- Waiting -->
+    <string name="waiting">諗緊…</string>
+    <string name="waiting_slow">仲諗緊…</string>
+    <string name="waiting_confirm">處理緊…</string>
+    <string name="waiting_new_chat">開緊新對話…</string>
+    <string name="waiting_reconnecting">重新連接手機…</string>
+    <string name="cancel">取消</string>
+    <string name="quoted">「%1$s」</string>
+
+    <!-- Answer -->
+    <string name="answer_header">Hermes</string>
+    <string name="ask_again">再問</string>
+    <string name="done">完成</string>
+
+    <!-- Confirm -->
+    <string name="confirm_title_approve">要批准？</string>
+    <string name="confirm_title_yes_no">確認？</string>
+    <string name="approve">批准</string>
+    <string name="deny">拒絕</string>
+    <string name="yes">好</string>
+    <string name="no">唔好</string>
+
+    <!-- Error -->
+    <string name="retry">再試</string>
+    <string name="back">返回</string>
+    <string name="err_no_phone">連唔到手機</string>
+    <string name="err_no_phone_hint">確認手機喺附近、藍牙已開</string>
+    <string name="err_phone_silent">手機冇回應</string>
+    <string name="err_phone_silent_hint">喺手機打開 Hermes Companion 再試</string>
+    <string name="err_not_configured">手機未設定</string>
+    <string name="err_not_configured_hint">喺手機 app 填 relay URL 同 token</string>
+    <string name="err_unauthorized">Token 唔啱</string>
+    <string name="err_unauthorized_hint">要同 PC config.json 嘅 token 一樣</string>
+    <string name="err_unreachable">連唔到 PC</string>
+    <string name="err_unreachable_hint">檢查 relay.js 同 Tailscale</string>
+    <string name="err_relay">Hermes 出錯</string>
+    <string name="err_relay_hint">PC 嗰邊有問題，再試一次</string>
+    <string name="err_too_slow">Hermes 太耐未答</string>
+    <string name="err_too_slow_hint">佢可能仲做緊，遲啲再問</string>
+    <string name="err_input">開唔到輸入</string>
+    <string name="err_input_hint">呢隻錶冇語音／鍵盤輸入法</string>
 </resources>

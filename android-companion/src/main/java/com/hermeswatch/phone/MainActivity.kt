@@ -5,7 +5,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.hermeswatch.phone.datalayer.WatchRequestCoordinator
 import com.hermeswatch.phone.relay.RelayClient
 import com.hermeswatch.phone.relay.RelayConfig
 import com.hermeswatch.phone.relay.RelayErrors
@@ -16,7 +19,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- * Settings + Phase 1 probes: GET /health and POST /watch/ask with pure text.
+ * Settings + probes (GET /health, text POST /watch/ask) + the latest watch
+ * request handled by [WatchRequestCoordinator] (Phase 2 Data Layer bridge).
  */
 class MainActivity : AppCompatActivity() {
     private lateinit var settings: RelaySettings
@@ -41,6 +45,15 @@ class MainActivity : AppCompatActivity() {
         }
         tokenField.setText(settings.bearerToken)
         status.text = getString(R.string.phase1_ready)
+
+        val watchStatus = findViewById<TextView>(R.id.watchStatus)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                WatchRequestCoordinator.lastEvent.collect { line ->
+                    watchStatus.text = line.ifBlank { getString(R.string.watch_idle) }
+                }
+            }
+        }
 
         fun persistFields(): String? {
             val normalized = RelayUrl.normalize(urlField.text.toString())

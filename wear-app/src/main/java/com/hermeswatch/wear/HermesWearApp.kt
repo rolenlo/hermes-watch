@@ -4,11 +4,8 @@ import android.app.Application
 
 /**
  * Wear OS application entry (Xiaomi Watch 2 Pro / Wear OS).
- * Phase 0: placeholder — Data Layer listeners land in Phase 1.
+ * Owns the single [WearSession] (state machine + Data Layer link).
  */
 class HermesWearApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        // TODO(Phase 1): register Wearable ListenerService / MessageClient.
-    }
+    val session: WearSession by lazy { WearSession(this) }
 }

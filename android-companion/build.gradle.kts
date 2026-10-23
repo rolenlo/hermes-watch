@@ -8,11 +8,13 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.hermeswatch.phone"
+        // Must equal wear-app's applicationId (and both signed with the same key) —
+        // Wear Data Layer only delivers messages between apps with the same package.
+        applicationId = "com.hermeswatch"
         minSdk = 26
         targetSdk = 35
-        versionCode = 2
-        versionName = "0.2.0-phase1"
+        versionCode = 3
+        versionName = "0.3.0-phase2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -49,6 +51,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-wearable:18.2.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
 
     testImplementation("junit:junit:4.13.2")
 }

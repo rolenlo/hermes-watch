@@ -72,7 +72,39 @@ class RelayClient(
         return reply
     }
 
-    /** Phase 2+: POST /watch/ask with 16 kHz mono WAV as `audio_b64`. */
+    /**
+     * One-shot `POST /watch/ask {text, rid}` — no polling. [rid] is the watch's
+     * requestId: relay.js dedupes on it, so a retried request gets the same reply
+     * and Hermes / actions run once.
+     */
+    fun ask(text: String, rid: String? = null): AskResponse {
+        val trimmed = text.trim()
+        require(trimmed.isNotEmpty()) { "Ask text is empty." }
+        requireToken()
+        val payload = JSONObject().put("text", trimmed)
+        if (!rid.isNullOrBlank()) payload.put("rid", rid)
+        return postJson("/watch/ask", payload.toString())
+    }
+
+    /**
+     * `POST /watch/confirm {id, yes, rid}` — Approve/Deny or Yes/No for a confirm card.
+     * May come back `kind=working` (an approved build); poll [result] with its `job`.
+     */
+    fun confirm(id: String, yes: Boolean, rid: String? = null): AskResponse {
+        require(id.isNotBlank()) { "Confirm id is empty." }
+        requireToken()
+        val payload = JSONObject().put("id", id).put("yes", yes)
+        if (!rid.isNullOrBlank()) payload.put("rid", rid)
+        return postJson("/watch/confirm", payload.toString())
+    }
+
+    private fun requireToken() {
+        require(config.bearerToken.isNotBlank()) {
+            "Bearer token is empty — required for /watch/* (must match config.json token)."
+        }
+    }
+
+    /** Phase 3: POST /watch/ask with 16 kHz mono WAV as `audio_b64`. */
     fun askWithWav(
         wavBytes: ByteArray,
         pollWorking: Boolean = true,
@@ -107,9 +139,11 @@ class RelayClient(
         return executeAsk(req)
     }
 
-    private fun postAsk(jsonBody: String): AskResponse {
+    private fun postAsk(jsonBody: String): AskResponse = postJson("/watch/ask", jsonBody)
+
+    private fun postJson(path: String, jsonBody: String): AskResponse {
         val req = Request.Builder()
-            .url(RelayUrl.join(base, "/watch/ask"))
+            .url(RelayUrl.join(base, path))
             .header("Authorization", "Bearer ${config.bearerToken}")
             .header("Content-Type", "application/json; charset=utf-8")
             .post(jsonBody.toRequestBody(JSON_MEDIA))

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@array/android_wear_capabilities">
+    <!-- Lets the phone (or future tools) discover this watch app via CapabilityClient. -->
+    <string-array name="android_wear_capabilities">
+        <item>hermeswatch_watch_app</item>
+    </string-array>
+</resources>

@@ -10,7 +10,9 @@
     <string name="save_settings">Save settings</string>
     <string name="check_health">檢查 /health</string>
     <string name="text_ask">文字 ask</string>
-    <string name="phase1_ready">Phase 1: fill URL + token, then 檢查 /health or 文字 ask.</string>
+    <string name="phase1_ready">填好 URL + token，撳「檢查 /health」。之後手錶就可以直接問。</string>
+    <string name="label_watch">最近手錶請求（Data Layer）</string>
+    <string name="watch_idle">未有。喺手錶撳 TALK 試下。</string>
     <string name="settings_saved">Settings saved.</string>
     <string name="health_checking">GET /health …</string>
     <string name="ask_sending">POST /watch/ask …</string>

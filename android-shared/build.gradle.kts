@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -22,5 +23,9 @@ android {
 }
 
 dependencies {
-    // Pure constants for MVP; Wearable Data Layer deps live in wear/phone modules.
+    // Wire format for watch <-> phone MessageClient payloads. Pure Kotlin (no org.json),
+    // so the codec is unit-testable on the JVM.
+    api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+    testImplementation("junit:junit:4.13.2")
 }
