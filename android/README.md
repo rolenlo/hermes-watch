@@ -10,4 +10,4 @@ Modules (sibling directories, wired via `settings.gradle.kts`):
 | `:android-companion` | `../android-companion` | Phone companion (HTTP → Tailscale relay) |
 | `:android-shared` | `../android-shared` | Shared Data Layer path constants |
 
-See [`../docs/WEAR-PORT.md`](../docs/WEAR-PORT.md) for Phase 0 status and setup.
+See [`../docs/WEAR-PORT.md`](../docs/WEAR-PORT.md) for Phase 0–1 status and how to hit `/health` + text `/watch/ask`.

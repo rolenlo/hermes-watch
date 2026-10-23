@@ -1,42 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tailscale relay base URL" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <EditText
-        android:id="@+id/relayUrl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textUri"
-        android:hint="@string/relay_url_hint" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_base_url" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bearer token (config.json token)" />
+        <EditText
+            android:id="@+id/relayUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/relay_url_hint"
+            android:inputType="textUri"
+            android:importantForAutofill="no" />
 
-    <EditText
-        android:id="@+id/relayToken"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@string/label_token" />
 
-    <Button
-        android:id="@+id/checkHealth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Check /health" />
+        <EditText
+            android:id="@+id/relayToken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/token_hint"
+            android:inputType="textPassword"
+            android:importantForAutofill="no" />
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="12dp" />
-</LinearLayout>
+        <Button
+            android:id="@+id/saveSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save_settings" />
+
+        <Button
+            android:id="@+id/checkHealth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/check_health" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:text="@string/label_ask_text" />
+
+        <EditText
+            android:id="@+id/askText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ask_hint"
+            android:inputType="textMultiLine|textCapSentences"
+            android:minLines="2"
+            android:importantForAutofill="no" />
+
+        <Button
+            android:id="@+id/textAsk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_ask" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:textIsSelectable="true" />
+    </LinearLayout>
+</ScrollView>

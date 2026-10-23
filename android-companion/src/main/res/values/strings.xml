@@ -2,5 +2,18 @@
 <resources>
     <string name="app_name">Hermes Watch Companion</string>
     <string name="relay_url_hint">https://your-pc.your-tailnet.ts.net:8453</string>
-    <string name="health_stub">Phase 0: tap Check health (OkHttp TODO)</string>
+    <string name="label_base_url">Tailscale relay base URL</string>
+    <string name="label_token">Bearer token (config.json token)</string>
+    <string name="token_hint">same as config.json token</string>
+    <string name="label_ask_text">Text ask (POST /watch/ask)</string>
+    <string name="ask_hint">e.g. what time is it</string>
+    <string name="save_settings">Save settings</string>
+    <string name="check_health">檢查 /health</string>
+    <string name="text_ask">文字 ask</string>
+    <string name="phase1_ready">Phase 1: fill URL + token, then 檢查 /health or 文字 ask.</string>
+    <string name="settings_saved">Settings saved.</string>
+    <string name="health_checking">GET /health …</string>
+    <string name="ask_sending">POST /watch/ask …</string>
+    <string name="ask_empty">Ask text is empty.</string>
+    <string name="token_required">Bearer token required for /watch/ask (match config.json).</string>
 </resources>

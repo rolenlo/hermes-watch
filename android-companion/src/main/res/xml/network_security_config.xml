@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Tailscale serves HTTPS with a local CA; cleartext is not used for the relay.
-     If you hit certificate issues in debug, add a debug-overrides trust-anchors entry. -->
+<!-- Tailscale serve is usually HTTPS. Cleartext is allowed so a direct
+     http://100.x.x.x:8453 (Tailscale IP + relay port) still works in Phase 1. -->
 <network-security-config>
-    <base-config cleartextTrafficPermitted="false" />
+    <base-config cleartextTrafficPermitted="true" />
 </network-security-config>

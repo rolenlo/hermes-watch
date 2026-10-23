@@ -4,11 +4,11 @@ import android.app.Application
 
 /**
  * Phone companion application.
- * Phase 0: placeholder — binds Wear Data Layer + [com.hermeswatch.phone.relay.RelayClient] in Phase 1.
+ * Phase 1: settings + OkHttp RelayClient from MainActivity.
+ * Phase 2+: bind Wear Data Layer listener here.
  */
 class HermesPhoneApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        // TODO(Phase 1): start Wear message listener; load relayUrl + Bearer token from settings.
     }
 }
